@@ -3,25 +3,97 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #c9a96e;
+  --color-accent: #b8956a;
+  --color-dark: #1c1c1c;
+  --color-bg: #faf8f5;
+  --color-text: #1c1c1c;
+  --color-muted: #6b6560;
+  --color-border: #e8e2da;
+  --color-surface: #f2ede7;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Jost", system-ui, sans-serif;
+
+  --background: #faf8f5;
+  --foreground: #1c1c1c;
+  --card: #faf8f5;
+  --card-foreground: #1c1c1c;
+  --muted: #6b6560;
+  --muted-bg: #f2ede7;
+  --border: #e8e2da;
+  --input: #e8e2da;
+  --ring: #c9a96e;
+  --primary: #c9a96e;
+  --primary-foreground: #ffffff;
+  --secondary: #b8956a;
+  --secondary-foreground: #ffffff;
+  --accent: #c9a96e;
+  --accent-foreground: #1c1c1c;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1c1c1c;
+    --foreground: #faf8f5;
+    --card: #1c1c1c;
+    --card-foreground: #faf8f5;
+    --muted: #6b6560;
+    --muted-bg: #2a2a2a;
+    --border: #3a3a3a;
+    --input: #3a3a3a;
+    --ring: #c9a96e;
+    --primary: #c9a96e;
+    --primary-foreground: #1c1c1c;
+    --secondary: #b8956a;
+    --secondary-foreground: #1c1c1c;
+    --accent: #c9a96e;
+    --accent-foreground: #faf8f5;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-sm transition duration-200 hover:scale-[1.02] hover:opacity-95;
+  }
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-full border border-border bg-card px-5 text-sm font-semibold text-foreground transition duration-200 hover:scale-[1.02] hover:bg-muted-bg;
+  }
+  .surface-card {
+    @apply rounded-2xl border border-border bg-card shadow-card transition duration-200 hover:shadow-card-md;
+  }
+  .fade-in {
+    animation: fade-in 0.45s ease-out both;
+  }
+  .fade-up {
+    animation: fade-up 0.5s ease-out both;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
