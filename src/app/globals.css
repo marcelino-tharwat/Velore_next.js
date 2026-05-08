@@ -31,7 +31,9 @@
   --accent-foreground: #1c1c1c;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Force light theme by default.
+   (We still keep the media query block below commented out so the app won't switch to dark automatically.) */
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #1c1c1c;
     --foreground: #faf8f5;
@@ -50,6 +52,7 @@
     --accent-foreground: #faf8f5;
   }
 }
+*/
 
 body {
   color: var(--foreground);
